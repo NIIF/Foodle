@@ -124,8 +124,7 @@ class API_FoodleAuthenticated extends API_Authenticated {
 		} else if (self::route('post', '^/api/foodle$', $parameters, $object)) {
 
 			// header('Content-type: text/plain; charset=utf-8');
-			// print_r($object); 
-
+			 //print_r($object); 
 
 			$newFoodle = new Data_Foodle($this->fdb);
 			$newFoodle->updateFromPostAPI($this->user, $object);
@@ -133,8 +132,8 @@ class API_FoodleAuthenticated extends API_Authenticated {
 			$this->fdb->saveFoodle($newFoodle);
 			$this->foodle = $this->fdb->readFoodle($newFoodle->identifier);
 
-			// print_r($newFoodle); 
-			// exit;
+			 //print_r($newFoodle); 
+			 //exit;
 
 			return $this->foodle;
 

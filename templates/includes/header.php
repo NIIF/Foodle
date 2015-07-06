@@ -25,10 +25,8 @@ if (!empty($this->data['foodle'])) {
 echo '</script>';
 
 
-if (!empty($this->data['gmapsAPI'])) {
 	echo '<script type="text/javascript" ' .
-	 'src="https://maps.googleapis.com/maps/api/js?key=' . $this->data['gmapsAPI'] . '&amp;sensor=false"></script>';
-}
+	 'src="//maps.googleapis.com/maps/api/js?key=' . $this->data['gmapsAPI'] . '&amp;sensor=false"></script>';
 
 
 	?>

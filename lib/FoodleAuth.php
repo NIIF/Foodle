@@ -28,15 +28,15 @@ class FoodleAuth {
 		/* Load simpleSAMLphp, configuration and metadata */
 		$this->sspconfig = SimpleSAML_Configuration::getInstance();
 		$this->config = SimpleSAML_Configuration::getInstance('foodle');
-		$session = SimpleSAML_Session::getInstance();
+		//$session = SimpleSAML_Session::getInstance();
 		
-		$this->disco = $this->config->getString('disco', 'https://disco.uninett.no');
+		$this->disco = $this->config->getString('discoURL');
 		$this->entityid = $this->config->getString('entityid');
 		
-		$authsource = $this->config->getString('auth', 'default-sp');
-		if ($session->isValid('twitter')) $authsource = 'twitter';
+		$authsource = $this->config->getString('auth', 'saml');
+		//if ($session->isValid('twitter')) $authsource = 'twitter';
 
-		if ($session->isValid('facebook')) $authsource = 'facebook';
+		//if ($session->isValid('facebook')) $authsource = 'facebook';
 		
 		$this->as = new SimpleSAML_Auth_Simple($authsource);
 
@@ -532,7 +532,7 @@ class FoodleAuth {
 		if (!$allowAnonymous) {
 		
 			SimpleSAML_Utilities::redirect($this->disco . '?entityID=' . 
-				urlencode($this->auth->entityid)  . 
+				urlencode($this->entityid)  . 
 				'&returnIDParam=idp' .
 				'&return=' . urlencode(SimpleSAML_Utilities::selfURL() . '?')
 			);

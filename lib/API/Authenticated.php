@@ -7,6 +7,7 @@ abstract class API_Authenticated extends API_API {
 	function __construct($config, $parameters) {
 		$this->user = null;
 		parent::__construct($config, $parameters);
+
 	}
 	
 	// protected function requireOAuth() {
